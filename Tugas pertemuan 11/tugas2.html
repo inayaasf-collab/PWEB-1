@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 2 – To-Do List Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            width: 420px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>To-Do List Sederhana</h2>
+
+        <input type="text" id="taskInput" placeholder="Masukkan tugas..." />
+
+        <button onclick="tambahTugas()">Tambah</button>
+        <button onclick="hapusTerakhir()" style="background:#dc3545">Hapus Terakhir</button>
+
+        <ul id="listTugas"></ul>
+    </div>
+
+    <script>
+        function tambahTugas() {
+            let input = document.getElementById("taskInput");
+            let teks = input.value.trim();
+
+            if (teks === "") {
+                alert("Isi dulu tugasnya!");
+                return;
+            }
+
+            let itemBaru = document.createElement("li");
+            itemBaru.innerHTML = teks;
+
+            document.getElementById("listTugas").appendChild(itemBaru);
+
+            input.value = ""; // reset
+        }
+
+        function hapusTerakhir() {
+            let list = document.getElementById("listTugas");
+            if (list.lastChild) {
+                list.removeChild(list.lastChild);
+            }
+        }
+    </script>
+</body>
+</html>

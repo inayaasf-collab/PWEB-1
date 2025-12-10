@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 3 – jQuery FAQ Interaktif</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .faq-box {
+            background: white;
+            padding: 20px;
+            width: 550px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .question {
+            padding: 12px;
+            margin-bottom: 5px;
+            background: #eaeaea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .answer {
+            display: none;
+            background: #eef5ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-box">
+        <h2>FAQ Interaktif (jQuery)</h2>
+
+        <div class="question">Apa itu HTML?</div>
+        <div class="answer">HTML adalah bahasa markup untuk membuat struktur halaman web.</div>
+
+        <div class="question">Apa itu CSS?</div>
+        <div class="answer">CSS digunakan untuk memberi gaya pada halaman web.</div>
+
+        <div class="question">Apa itu JavaScript?</div>
+        <div class="answer">JavaScript adalah bahasa pemrograman yang membuat web menjadi interaktif.</div>
+
+        <div class="question">Apa itu jQuery?</div>
+        <div class="answer">jQuery adalah library JavaScript yang mempermudah manipulasi DOM.</div>
+
+        <div class="question">Apa itu DOM?</div>
+        <div class="answer">DOM adalah representasi struktur dokumen yang dapat dimanipulasi dengan skrip.</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Klik untuk toggle jawaban
+            $(".question").click(function() {
+                $(this).next(".answer").toggle();
+            });
+
+            // Hover efek warna
+            $(".question").hover(
+                function() { // masuk
+                    $(this).css("background", "#cfe2ff");
+                },
+                function() { // keluar
+                    $(this).css("background", "#eaeaea");
+                }
+            );
+        });
+    </script>
+</body>
+</html>
